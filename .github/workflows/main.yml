@@ -1,0 +1,17 @@
+import os
+import sys
+
+def connect_rdp(host, username, password):
+    command = f"xfreerdp /u:{username} /p:{password} /v:{host}"
+    os.system(command)
+
+if __name__ == "__main__":
+    if len(sys.argv) != 4:
+        print("Usage: python rdp_client.py <host> <username> <password>")
+        sys.exit(1)
+    
+    host = sys.argv[1]
+    username = sys.argv[2]
+    password = sys.argv[3]
+    
+    connect_rdp(host, username, password)
